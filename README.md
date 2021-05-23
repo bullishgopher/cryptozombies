@@ -1,3 +1,63 @@
+# Deploy smart contracts on localhost
+
+Create `.env` for
+
+REACT_APP_ROPSTEN_PROJECT_ID: Project Id from infura fro Ropsten network
+
+CONTRACT_PRIVATE_KEY: Ropsten network private key from metamask
+
+`yarn`
+
+Install npm packages
+
+`npx hardhat compile`
+
+Compile smart contracts using hardhat
+
+`yarn deploy:local`
+
+Deploy smart contracts on localhost
+
+`npx hardhat node`
+
+Start HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+
+`npx hardhat console --network localhost`
+
+To test on localhost
+
+`const Box = await ethers.getContractFactory("ZombieFeeding")`
+
+`const box = await Box.attach("0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9")`
+
+`(await box.setKittyContractAddress("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"))`
+
+Result:
+```
+{
+  hash: '0x054e491af94e6fb6f85656a3a9f72ab54c61b4f09da7de3166e7dca81026f38f',
+  type: 0,
+  accessList: null,
+  blockHash: '0x5d8a906cef7146834b4f2dca8caf34d6dd3b55812773e33d9a5c57a0b963e025',
+  blockNumber: 8,
+  transactionIndex: 0,
+  confirmations: 1,
+  from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  gasPrice: BigNumber { _hex: '0x01dcd65000', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0xb519', _isBigNumber: true },
+  to: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
+  value: BigNumber { _hex: '0x00', _isBigNumber: true },
+  nonce: 7,
+  data: '0x5f4623f1000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266',
+  r: '0xb19bd534fd984867ed0a008ea398b561eff4fcac4dc504dcbe754b2691830d10',
+  s: '0x5ad59deb2771d5348b337bef799c1d1b38cf0f43248733d7df29012c58f1c8a9',
+  v: 2710,
+  creates: null,
+  chainId: 1337,
+  wait: [Function (anonymous)]
+}
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
